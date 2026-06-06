@@ -1,6 +1,7 @@
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector("#nav-menu");
 const navLinks = document.querySelectorAll(".nav-menu a");
+const copyrightYear = document.querySelector("#copyright-year");
 
 if (navToggle && navMenu) {
   navToggle.addEventListener("click", () => {
@@ -14,4 +15,8 @@ if (navToggle && navMenu) {
       navToggle.setAttribute("aria-expanded", "false");
     });
   });
+}
+
+if (copyrightYear) {
+  copyrightYear.textContent = new Date().getFullYear();
 }
