@@ -799,3 +799,7 @@ pre {
     width: 100%;
   }
 }
+
+#copyright-year {
+  color: var(--gold);
+}
