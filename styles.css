@@ -2,12 +2,10 @@
   --bg: #07111f;
   --bg-soft: #0d1a2b;
   --card: rgba(16, 29, 47, 0.82);
-  --card-strong: rgba(18, 33, 55, 0.95);
   --text: #f7f2e7;
   --muted: #b8c0cc;
   --gold: #f2c15b;
   --green: #9fd06f;
-  --green-2: #5fb985;
   --violet: #8d7cf6;
   --border: rgba(247, 242, 231, 0.14);
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -337,11 +335,6 @@ pre {
   opacity: 0.8;
 }
 
-.plant-orbit .leaf {
-  width: 46%;
-  filter: drop-shadow(0 0 20px rgba(159, 208, 111, 0.2));
-}
-
 .about-strip {
   padding-top: 1rem;
   border-top: 1px solid var(--border);
@@ -448,24 +441,6 @@ pre {
   position: relative;
   z-index: 1;
   margin-bottom: 0.35rem;
-}
-
-.todo-preview {
-  color: #102315;
-  background: linear-gradient(135deg, #c9ecd2, #87c693);
-}
-
-.weather-preview {
-  text-align: center;
-  background: linear-gradient(135deg, #36306d, #6077c6);
-}
-
-.weather-preview h3 {
-  font-size: 3rem;
-}
-
-.weather-icon {
-  font-size: 2rem;
 }
 
 .eco-preview {
