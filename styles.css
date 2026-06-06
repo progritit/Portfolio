@@ -492,6 +492,57 @@ pre {
   background: rgba(159, 208, 111, 0.32);
 }
 
+.rps-preview {
+  background:
+    radial-gradient(circle at top right, rgba(246, 198, 91, 0.3), transparent 35%),
+    linear-gradient(135deg, rgba(19, 31, 54, 0.95), rgba(66, 54, 111, 0.9));
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.rps-preview p {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.rps-preview span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.sketch-preview {
+  background:
+    radial-gradient(circle at bottom left, rgba(143, 214, 148, 0.25), transparent 35%),
+    linear-gradient(135deg, rgba(7, 17, 31, 0.95), rgba(24, 38, 67, 0.95));
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.sketch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 90px;
+  height: 90px;
+  border: 1px solid rgba(246, 198, 91, 0.45);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.sketch-grid span {
+  border: 1px solid rgba(246, 198, 91, 0.18);
+  background: rgba(143, 214, 148, 0.12);
+}
+
+.sketch-grid span:nth-child(2),
+.sketch-grid span:nth-child(4),
+.sketch-grid span:nth-child(5),
+.sketch-grid span:nth-child(8) {
+  background: rgba(246, 198, 91, 0.28);
+}
+
 .project-info {
   padding: 1.25rem;
 }
