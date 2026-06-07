@@ -6,7 +6,7 @@ This site was built from scratch as part of my transition into web development w
 
 ## 🚀 Live Demo
 
-[Explore the Portfolio Live](https://progritit.github.io/portfolio/)
+[Explore the Portfolio Live](https://progritit.github.io/Portfolio/)
 
 ---
 
