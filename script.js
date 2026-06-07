@@ -20,3 +20,5 @@ if (navToggle && navMenu) {
 if (copyrightYear) {
   copyrightYear.textContent = new Date().getFullYear();
 }
+
+
