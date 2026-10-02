@@ -551,7 +551,17 @@
               </address>
             </div>
 
-            <form class="enquiry-form" id="enquiry-form">
+            <form
+              class="enquiry-form"
+              id="enquiry-form"
+              action="https://formspree.io/f/xqpavjyk"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="subject"
+                value="New Thinkfully Development enquiry from {{ name }}"
+              />
               <div class="form-field">
                 <label for="enquiry-name">Name</label>
                 <input
@@ -581,7 +591,7 @@
                 </label>
                 <input
                   id="enquiry-organisation"
-                  name="organisation"
+                  name="company"
                   type="text"
                   autocomplete="organization"
                 />
