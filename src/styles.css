@@ -1787,6 +1787,115 @@ p {
   align-self: flex-start;
 }
 
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.contact-intro {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.contact-lead {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  line-height: 1.4;
+}
+
+.enquiry-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-large);
+  background: var(--surface-primary);
+}
+
+.form-field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.form-field-wide {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.form-field label span {
+  margin-left: 0.35rem;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-small);
+  background: var(--background-secondary);
+  color: var(--text-primary);
+  font: inherit;
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: 2px solid var(--solar-gold);
+  outline-offset: 2px;
+  border-color: var(--border-solar);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.form-status {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 800px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .enquiry-form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-field-wide {
+    grid-column: auto;
+  }
+}
+
 @media (max-width: 700px) {
   .technical-work-card {
     flex-direction: column;

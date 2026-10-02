@@ -1,7 +1,7 @@
 {
-  "name": "solcira-portfolio",
+  "name": "thinkfully-development-portfolio",
   "version": "1.0.0",
-  "description": "Clebson Costa portfolio — foundation for SOLCIRA, The Brilliant Digital Presence.",
+  "description": "Clebson Costa portfolio — foundation for Thinkfully Development, The Brilliant Digital Presence.",
   "type": "module",
   "private": true,
   "scripts": {
@@ -27,7 +27,8 @@
     "portfolio",
     "vanilla-javascript",
     "webpack",
-    "solcira"
+    "thinkfully development",
+    "clebson costa"
   ],
   "bugs": {
     "url": "https://github.com/progritit/Portfolio/issues"
