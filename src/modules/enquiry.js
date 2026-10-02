@@ -36,7 +36,7 @@ export function initEnquiryForm() {
     selectRequestedService(serviceSelect, serviceLink.dataset.service);
   });
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     if (!form.checkValidity()) {
@@ -44,9 +44,34 @@ export function initEnquiryForm() {
       return;
     }
 
-    if (formStatus) {
-      formStatus.textContent =
-        "Enquiry submission will be activated when the secure form service is connected.";
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Form submission failed: ${response.status}`);
+      }
+
+      form.reset();
+
+      if (formStatus) {
+        formStatus.textContent =
+          "Thank you. Your enquiry has been sent successfully.";
+      }
+    } catch (error) {
+      console.error("Enquiry submission failed:", error);
+
+      if (formStatus) {
+        formStatus.textContent =
+          "Something went wrong while sending your enquiry. Please try again.";
+      }
     }
   });
 }
