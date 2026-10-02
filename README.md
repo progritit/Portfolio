@@ -44,67 +44,124 @@ structure, reusable components, and progressive enhancement.
 
 ## Tech Stack
 
-| Area | Technologies |
-| --- | --- |
-| Structure | HTML5, semantic HTML |
-| Styling | CSS3, custom properties, Flexbox, Grid, responsive design |
-| Interactivity | Vanilla JavaScript, DOM events |
-| Version control | Git, GitHub |
-| Deployment | GitHub Pages |
-| Visual assets | Project screenshots, Devicon |
+| Area            | Technologies                                              |
+| --------------- | --------------------------------------------------------- |
+| Structure       | HTML5, semantic HTML                                      |
+| Styling         | CSS3, custom properties, Flexbox, Grid, responsive design |
+| Interactivity   | Vanilla JavaScript, DOM events                            |
+| Version control | Git, GitHub                                               |
+| Deployment      | GitHub Pages                                              |
+| Visual assets   | Project screenshots, Devicon                              |
 
 ## Featured Projects
 
-| Project | Main learning focus |
-| --- | --- |
-| [Solaris Archive](https://progritit.github.io/Library/) | Objects, arrays, DOM rendering, forms, and interface state |
-| [Solaris Command Center](https://progritit.github.io/Admin-Dashboard/) | CSS Grid, responsive dashboard structure, and reusable UI patterns |
-| [Solaris Access Portal](https://progritit.github.io/Solaris-Access-Portal/) | Form structure, responsive layout, hierarchy, and custom styling |
-| [Cyber-Solar Calculator](https://progritit.github.io/Calculator/) | Functions, operator logic, DOM events, and application state |
-| [Rock Paper Scissors](https://progritit.github.io/TOP_PROJECT_Rock_Paper_Scissors/) | Conditionals, functions, DOM manipulation, and game logic |
-| [Etch-a-Sketch](https://progritit.github.io/PROJECT_Etch-a-Sketch/) | Dynamic elements, loops, pointer input, and responsive updates |
-| [TOP Landing Page](https://progritit.github.io/TOP-Landing-Page-Project/) | Semantic structure, Flexbox, spacing, and visual hierarchy |
+| Project                                                                             | Main learning focus                                                |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| [Solaris Archive](https://progritit.github.io/Library/)                             | Objects, arrays, DOM rendering, forms, and interface state         |
+| [Solaris Command Center](https://progritit.github.io/Admin-Dashboard/)              | CSS Grid, responsive dashboard structure, and reusable UI patterns |
+| [Solaris Access Portal](https://progritit.github.io/Solaris-Access-Portal/)         | Form structure, responsive layout, hierarchy, and custom styling   |
+| [Cyber-Solar Calculator](https://progritit.github.io/Calculator/)                   | Functions, operator logic, DOM events, and application state       |
+| [Rock Paper Scissors](https://progritit.github.io/TOP_PROJECT_Rock_Paper_Scissors/) | Conditionals, functions, DOM manipulation, and game logic          |
+| [Etch-a-Sketch](https://progritit.github.io/PROJECT_Etch-a-Sketch/)                 | Dynamic elements, loops, pointer input, and responsive updates     |
+| [TOP Landing Page](https://progritit.github.io/TOP-Landing-Page-Project/)           | Semantic structure, Flexbox, spacing, and visual hierarchy         |
 
-## Project Structure
+## Development foundation (portfolio-refactor)
+
+This branch integrates [02template](https://github.com/progritit/02template_build_quality_security_testing)
+from commit `8cf0e9a5d38f93e1518d278bdd7a87a949abbdec` into the existing Portfolio
+repository. The existing page content, assets, and JavaScript behavior are retained.
+SOLCIRA — **The Brilliant Digital Presence** — is the planned brand; the visual
+and commercial changes are a later step.
+
+The template supplies Webpack, ESLint, Prettier, Jest/Babel, Semgrep commands,
+and npm audit. Portfolio-specific adaptations include:
+
+- Correct package metadata and Node 24 LTS configuration.
+- SVG/ICO asset support alongside the template's raster images and fonts.
+- Extracted CSS so the static page stays styled with JavaScript disabled.
+- Content-hashed production JavaScript and CSS filenames.
+- Five DOM behavior tests using Jest's jsdom environment, replacing the
+  template's arithmetic smoke test.
+- Tests included in `check` and therefore in `check:all`.
+- Compatible dependency security updates recorded in the lockfile.
+
+### Project structure
 
 ```text
 Portfolio/
-├── assets/
-│   ├── app_previews/
-│   │   ├── calculator_preview.png
-│   │   ├── dashboard_preview.png
-│   │   ├── etchasketch_preview.png
-│   │   ├── form_preview.png
-│   │   ├── landingpage_preview.png
-│   │   ├── library_preview.png
-│   │   └── rps_preview.png
-│   └── icon.png
-├── index.html
-├── styles.css
-├── script.js
+├── src/
+│   ├── assets/              # Existing images and branding assets
+│   ├── index.js             # Existing interactions + CSS import
+│   ├── styles.css
+│   └── template.html        # Existing page, processed by Webpack
+├── tests/
+│   ├── navigation.test.js
+│   └── styleMock.cjs
+├── webpack.common.js
+├── webpack.dev.js
+├── webpack.prod.js
+├── eslint.config.js
+├── babel.config.js
+├── jest.config.js
+├── package.json
+├── package-lock.json
 └── README.md
 ```
 
-## Getting Started
+Webpack writes the built site to `dist/`, which is ignored by Git.
+JavaScript modularization and CSS splitting remain future refactor work.
 
-No package manager, build tool, or environment variables are required.
+### Getting started
 
-### Clone the repository
+Use Node 24 LTS (`.nvmrc` is included) and npm. If you use nvm, run `nvm use`.
 
 ```bash
-git clone https://github.com/progritit/Portfolio.git
+git clone --branch portfolio-refactor https://github.com/progritit/Portfolio.git
 cd Portfolio
+npm ci
+npm run dev
 ```
 
-### Run locally
+The development server opens at `http://localhost:8080`.
+Use the development server instead of opening the source HTML directly.
 
-Open `index.html` directly in a browser or use a local server:
+| Command                                   | Purpose                                                |
+| ----------------------------------------- | ------------------------------------------------------ |
+| `npm run dev`                             | Development server with live updates                   |
+| `npm run build`                           | Production HTML, CSS, JavaScript and images in `dist/` |
+| `npm run lint` / `npm run lint:fix`       | Check / fix JavaScript lint issues                     |
+| `npm run format` / `npm run format:check` | Apply / check Prettier formatting                      |
+| `npm test` / `npm run test:watch`         | Run / watch the DOM behavior tests                     |
+| `npm run check`                           | Lint, formatting, tests and production build           |
+| `npm run security:strict`                 | Semgrep scan that fails on findings                    |
+| `npm run security:deps`                   | Audit dependencies with npm                            |
+| `npm run check:all`                       | All checks, including both security checks             |
+
+Semgrep is a separate Python CLI, as in the original template; `npm ci` does
+not install it. Install it with `pipx install semgrep`, or
+`uv tool install semgrep`, and ensure `semgrep` is on your PATH.
+The security commands require internet access to fetch rules and advisories.
+
+To inspect the production build locally:
 
 ```bash
-python3 -m http.server 5500
+npm run build
+python3 -m http.server 5500 --directory dist
 ```
 
-Then open `http://localhost:5500`.
+Then visit `http://localhost:5500`.
+
+### Deployment status
+
+This refactor branch does not deploy or change the current GitHub Pages site.
+Before merging it for production, configure hosting to run `npm ci` and
+`npm run build`, and publish **`dist/`**. Serving the repository root will no
+longer work because the source HTML now lives in `src/`. Hosting configuration
+and the custom domain are planned separately.
+
+The existing screenshots are retained at their original sizes. Webpack emits
+asset-size warnings for several of them; image optimization is still on the
+roadmap.
 
 ## JavaScript Responsibilities
 

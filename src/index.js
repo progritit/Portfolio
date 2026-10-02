@@ -1,9 +1,13 @@
+import "./styles.css";
+
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector("#nav-menu");
 const navLinks = document.querySelectorAll(".nav-menu a");
 const sections = document.querySelectorAll("main section[id]");
 const copyrightYear = document.querySelector("#copyright-year");
-const projectPreviewImages = document.querySelectorAll(".project-preview-image");
+const projectPreviewImages = document.querySelectorAll(
+  ".project-preview-image",
+);
 
 function closeMenu() {
   navMenu.classList.remove("is-open");
