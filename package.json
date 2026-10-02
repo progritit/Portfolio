@@ -18,7 +18,8 @@
     "check:all": "npm run check && npm run security:strict && npm run security:deps",
     "test": "jest",
     "test:watch": "jest --watch",
-    "deploy": "gh-pages -d dist --cname thinkfullydevelopment.com"
+    "deploy": "gh-pages -d dist --cname thinkfullydevelopment.com",
+    "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",
