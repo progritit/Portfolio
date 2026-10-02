@@ -1890,6 +1890,33 @@ p {
   text-transform: uppercase;
 }
 
+.enquiry-form[aria-busy="true"] {
+  cursor: progress;
+}
+
+.enquiry-form button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.form-status {
+  min-height: 1.4em;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.form-status-sending {
+  color: var(--text-secondary);
+}
+
+.form-status-success {
+  color: var(--solar-gold);
+}
+
+.form-status-error {
+  color: var(--urgent-coral, #d97966);
+}
+
 @media (max-width: 800px) {
   .contact-layout {
     grid-template-columns: 1fr;

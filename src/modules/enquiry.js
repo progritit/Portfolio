@@ -44,7 +44,18 @@ export function initEnquiryForm() {
       return;
     }
 
+    const submitButton = form.querySelector('button[type="submit"]');
     const formData = new FormData(form);
+
+    submitButton.disabled = true;
+    submitButton.setAttribute("aria-disabled", "true");
+
+    form.setAttribute("aria-busy", "true");
+
+    if (formStatus) {
+      formStatus.className = "form-status form-status-sending";
+      formStatus.textContent = "Sending your enquiry…";
+    }
 
     try {
       const response = await fetch(form.action, {
@@ -62,6 +73,7 @@ export function initEnquiryForm() {
       form.reset();
 
       if (formStatus) {
+        formStatus.className = "form-status form-status-success";
         formStatus.textContent =
           "Thank you. Your enquiry has been sent successfully.";
       }
@@ -69,9 +81,15 @@ export function initEnquiryForm() {
       console.error("Enquiry submission failed:", error);
 
       if (formStatus) {
+        formStatus.className = "form-status form-status-error";
         formStatus.textContent =
           "Something went wrong while sending your enquiry. Please try again.";
       }
+    } finally {
+      submitButton.disabled = false;
+      submitButton.removeAttribute("aria-disabled");
+
+      form.removeAttribute("aria-busy");
     }
   });
 }
