@@ -558,6 +558,14 @@
               method="POST"
             >
               <input
+                class="form-honeypot"
+                type="text"
+                name="_gotcha"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+              />
+              <input
                 type="hidden"
                 name="subject"
                 value="New Thinkfully Development enquiry from {{ name }}"

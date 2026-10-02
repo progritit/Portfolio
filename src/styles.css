@@ -1917,6 +1917,14 @@ p {
   color: var(--urgent-coral, #d97966);
 }
 
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 @media (max-width: 800px) {
   .contact-layout {
     grid-template-columns: 1fr;
