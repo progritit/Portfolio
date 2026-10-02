@@ -1,7 +1,7 @@
 {
   "name": "thinkfully-development-portfolio",
   "version": "1.0.0",
-  "description": "Clebson Costa portfolio — foundation for Thinkfully Development, The Brilliant Digital Presence.",
+  "description": "Thinkfully Development — Clebson Costa's web development portfolio and professional services website.",
   "type": "module",
   "private": true,
   "scripts": {
@@ -26,15 +26,20 @@
   },
   "keywords": [
     "portfolio",
+    "web-development",
+    "frontend-development",
     "vanilla-javascript",
     "webpack",
-    "thinkfully development",
-    "clebson costa"
+    "jest",
+    "responsive-design",
+    "accessibility",
+    "thinkfully-development"
   ],
+  "author": "Clebson Costa",
   "bugs": {
     "url": "https://github.com/progritit/Portfolio/issues"
   },
-  "homepage": "https://progritit.github.io/Portfolio/",
+  "homepage": "https://thinkfullydevelopment.com/",
   "devDependencies": {
     "@babel/core": "^7.29.7",
     "@babel/preset-env": "^7.29.7",
