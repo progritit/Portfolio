@@ -141,3 +141,18 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Local brand working files
+brand/workbench/
+brand/exports/
+*.psd
+*.ai
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / temporary files
+*.swp
+*.swo
+*~
